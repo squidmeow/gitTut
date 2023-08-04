@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+          border: dashed black 1px;
+          width: 130px;
+          padding-left: 20px;
+          font-weight: bold;
+          background-color: lightgreen;
+        }
+      </style>    
+</head>
+<body>
+    <div id="app">
+        <p v-if="typewritersInStock">
+            in stock
+          </p>
+          
+          <p v-else>
+            not in stock
+          </p>
+
+
+          <p v-if="typewriterCount > 0">
+            in stock
+          </p>
+          
+          <p v-else>
+            not in stock
+          </p>
+
+
+          <p v-if="typewriterCount>3">
+            In stock
+          </p>
+          
+          <p v-else-if="typewriterCount>0">
+            Very few left!
+          </p>
+          
+          <p v-else>
+            Not in stock
+          </p>
+
+          <p v-if="text.includes('pizza')">The text includes the word 'pizza'</p>
+          <p v-else>The word 'pizza' is not found in the text</p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+         data() {
+          return {
+            typewritersInStock: false,
+            typewriterCount: 3,
+            text: 'I like taco, pizza, Thai beef salad, pho soup and tagine.'
+          }
+         }
+        })
+        app.mount('#app')
+      </script>
+</body>
+</html>

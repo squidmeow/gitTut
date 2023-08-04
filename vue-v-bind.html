@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app > div {
+          width: 200px;
+          padding: 20px;
+          border: dashed black 1px;
+        }
+        .impClass {
+          background-color: lightpink;
+        }
+        .myClass {
+            background-color: lightcoral;
+        }        
+      </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:style="{ fontSize: size }">
+            Text example
+          </div>
+          <div v-bind:style="{ fontSize: size + 'px' }">
+            Text example
+          </div>
+          <div v-bind:style="{ 'font-size': size + 'px' }">
+            Text example
+          </div>
+          <div v-bind:style="{ backgroundColor: 'hsl('+bgVal+',80%,80%)' }">
+            Notice the background color on this div tag.
+          </div>
+          <div v-bind:style="{ backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }">
+            Conditional background color
+          </div>
+          <div v-bind:class="className">
+            The class is set with Vue
+          </div>
+          <div v-bind:class="{ myClass: true }">
+            The class is set conditionally to change the background color
+          </div>
+          <div v-bind:class="{ myClass: isImportant }">
+            The class is set conditionally to change the background color
+          </div>
+          <div :class="{ impClass: isImportant }">
+            The class is set conditionally to change the background color
+          </div>          
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+         data() {
+          return {
+            size: '28',
+            bgVal: 180,
+            isImportant: true,
+            className: 'impClass',
+            isImportant: true
+          }
+         }
+        })
+        app.mount('#app')
+      </script>
+</body>
+</html>
