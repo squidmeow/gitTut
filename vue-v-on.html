@@ -6,16 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-        <div v-show="showDiv">This div tag can be hidden</div>
-        <div v-if="showDiv">Div tag with v-if</div>
+    <div id ="app">
+        <img src = "img_moose.jpg">
+        <p>{{ "Moose count; " + count }}</p>
+        <button v-on:click="count++">Count moose</button>
     </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         const app = Vue.createApp({
             data(){
                 return{
-                    showDiv:true
+                    count:0
                 }
             }
         })

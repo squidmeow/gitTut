@@ -1,0 +1,5 @@
+Create a Repositiory:  git init
+Add all files in directory and subdirectories :  git add .
+Commit files to repo:  git commit -m "message"
+Review git history log: git log
+Check status:  git status

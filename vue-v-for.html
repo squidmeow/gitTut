@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app > div {
+          border: solid black 1px;
+          width: 80%;
+          padding: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+        }
+        img {
+          width: 70px;
+          margin: 10px;
+        }
+        figure {
+      width: 80px;
+      padding: 10px;
+      margin: 10px;
+      background-color: lightskyblue;
+      border-radius: 5px;
+    }
+
+    figcaption {
+      text-align: center;
+    }
+      </style>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for = "x in manyFoods">{{ x }}</li>
+        </ol>
+
+        <div>
+            <img v-for="x in manyFoodimgs" v-bind:src="x">
+        </div>
+        <div>
+            <figure v-for="x in manyFoodsObj">
+                <img v-bind:src="x.url">
+                <figcaption>{{ x.name }}</figcaption>
+            </figure>
+        </div>
+        <div>
+            <p v-for="(x,index) in manyFoods">
+                {{ index }}: "{{ x }}" <br>
+            </p>
+        </div>
+        <div>
+            <p v-for="(x, index) in manyFoodsObj">
+                {{ index }}: "{{ x.name }}", url: "{{ x.url }}" <br>
+            </p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    manyFoods:['Burrito', 'Salad','Cake','Soup','Fish','Pizza','Rice'],
+                    manyFoodimgs:['img_burrito.svg', 'img_salad.svg','im_cake.svg','img_soup.svg','img_fish.svg','img_pizza.svg','img_rice.svg'],
+                    manyFoodsObj: [
+                        {name: 'Burrito', url: 'img_burrito.svg'},
+                        {name: 'Salad', url: 'img_salad.svg'},
+                        {name: 'Cake', url: 'img_cake.svg'},
+                        {name: 'Soup', url: 'img_soup.svg'},
+                        {name: 'Fish', url: 'img_fish.svg'},
+                        {name: 'Pizza', url: 'img_pizza.svg'},
+                        {name: 'Rice', url: 'img_rice.svg'}
+                    ]
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
