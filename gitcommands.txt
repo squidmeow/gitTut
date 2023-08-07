@@ -3,3 +3,5 @@ Add all files in directory and subdirectories :  git add .
 Commit files to repo:  git commit -m "message"
 Review git history log: git log
 Check status:  git status
+Show file changes git diff | git diff --staged | git diff --staged  --no-renames 
+Commit files without staging first: git commit -a -m "message" 
